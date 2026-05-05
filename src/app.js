@@ -25,8 +25,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://mainichihalalshop.com",
-      "https://www.mainichihalalshop.com",
+      "https://zayn-bd.com",
+      "https://www.zayn-bd.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
