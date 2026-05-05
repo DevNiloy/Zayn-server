@@ -5,6 +5,7 @@ const { sendAdminEmail } = require("../config/email");
 exports.createOrderService = async (orderData, userId) => {
   const order = new Order({
     user: userId || null,
+    name: orderData.customer?.name,
     ...orderData,
   });
 

@@ -22,7 +22,7 @@ exports.addOrderToSheet = async (order) => {
     await sheet.addRow({
       Date: new Date().toISOString(),
       OrderId: order._id.toString(),
-      Name: order.Name || "",
+      Name: order.name || "",
       Phone: order.shippingAddress?.phone || "",
       Address: order.shippingAddress?.address || "",
       City: order.shippingAddress?.city || "",
