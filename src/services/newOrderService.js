@@ -3,10 +3,19 @@ const { addOrderToSheet } = require("../config/googleSheetService");
 const { sendAdminEmail } = require("../config/email");
 
 exports.createOrderService = async (orderData, userId) => {
+  // const order = new Order({
+  //   user: userId || null,
+  //   name: orderData.customer?.name,
+  //   ...orderData,
+  // });
+
   const order = new Order({
     user: userId || null,
     name: orderData.customer?.name,
-    ...orderData,
+    orderItems: orderData.orderItems,
+    shippingAddress: orderData.shippingAddress,
+    paymentMethod: orderData.paymentMethod,
+    totalPrice: orderData.totalPrice,
   });
 
   const savedOrder = await order.save();
