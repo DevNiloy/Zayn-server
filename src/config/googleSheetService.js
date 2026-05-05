@@ -22,13 +22,11 @@ exports.addOrderToSheet = async (order) => {
     await sheet.addRow({
       Date: new Date().toISOString(),
       OrderId: order._id.toString(),
-      Name: order.shippingAddress?.name || "",
+      Name: order.Name || "",
       Phone: order.shippingAddress?.phone || "",
       Address: order.shippingAddress?.address || "",
       City: order.shippingAddress?.city || "",
-      Products: order.orderItems
-        .map((i) => `${i.name} x${i.qty}`)
-        .join(", "),
+      Products: order.orderItems.map((i) => `${i.name} x${i.qty}`).join(", "),
       Total: order.totalPrice,
       Status: order.status || "Pending",
     });
