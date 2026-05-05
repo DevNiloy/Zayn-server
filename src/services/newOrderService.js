@@ -7,7 +7,9 @@ exports.createOrderService = async (orderData, userId) => {
   //   user: userId || null,
   //   name: orderData.customer?.name,
   //   ...orderData,
-  // });
+  // }); console.log("🔥 FULL ORDER DATA:", orderData);
+  console.log("🔥 CUSTOMER:", orderData?.customer);
+  console.log("🔥 NAME:", orderData?.customer?.name);
 
   const order = new Order({
     user: userId || null,

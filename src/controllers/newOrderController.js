@@ -1,5 +1,7 @@
 const orderService = require("../services/newOrderService");
 exports.placeOrder = async (req, res, next) => {
+  console.log("🔥 REQ BODY:", req.body);
+  console.log("🔥 CUSTOMER:", req.body?.customer);
   try {
     const { orderItems } = req.body;
 
@@ -9,10 +11,7 @@ exports.placeOrder = async (req, res, next) => {
 
     const userId = req.user ? req.user._id : null;
 
-    const savedOrder = await orderService.createOrderService(
-      req.body,
-      userId
-    );
+    const savedOrder = await orderService.createOrderService(req.body, userId);
 
     res.status(201).json({
       success: true,
